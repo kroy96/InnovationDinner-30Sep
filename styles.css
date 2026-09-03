@@ -1,0 +1,207 @@
+/* ==========================================================================
+   Hack2skill Innovation Dinner (Bangalore Edition II)
+   Direction 1: Modern Tech Executive Standard (Stripe / OpenAI / Linear)
+   ========================================================================== */
+
+:root {
+  --color-obsidian: #070709;
+  --color-surface: #0d0d12;
+  --color-surface-elevated: #13131a;
+  --color-surface-card: #111117;
+  --champagne-gradient: linear-gradient(135deg, #fcf8ee 0%, #e2c992 50%, #c49d47 100%);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-champagne: rgba(226, 201, 146, 0.22);
+}
+
+html {
+  background-color: var(--color-obsidian);
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-obsidian);
+  min-height: 100vh;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Ambient Modern Lighting */
+.modern-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+  opacity: 0.32;
+}
+
+.modern-glow-center {
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(850px, 95vw);
+  height: 550px;
+  background: radial-gradient(circle, rgba(226, 201, 146, 0.16) 0%, rgba(139, 92, 246, 0.1) 45%, transparent 75%);
+}
+
+.modern-glow-bottom {
+  bottom: 5%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+}
+
+/* Subtle Grid Mesh */
+.grid-mesh-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at 50% 30%, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at 50% 30%, black 40%, transparent 80%);
+}
+
+/* Vignette Overlay */
+.vignette-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 45%, rgba(7, 7, 9, 0.9) 100%);
+}
+
+/* Champagne Gradient Typography */
+.champagne-gradient-text {
+  background: var(--champagne-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Floating Header on Scroll */
+#main-header.scrolled {
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.85);
+}
+
+/* Modern Tech Card */
+.tech-card {
+  background: linear-gradient(160deg, rgba(19, 19, 27, 0.7) 0%, rgba(13, 13, 18, 0.85) 100%);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.75), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(226, 201, 146, 0.35);
+  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.9), 0 0 30px -5px rgba(226, 201, 146, 0.12);
+}
+
+.tech-card .card-border-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(226, 201, 146, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tech-card:hover .card-border-glow {
+  opacity: 1;
+}
+
+/* Timeline Rows */
+.timeline-row {
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.timeline-row:hover {
+  transform: translateX(4px);
+  border-color: rgba(226, 201, 146, 0.3);
+  background: rgba(19, 19, 26, 0.9);
+}
+
+/* Modern Action Buttons */
+.btn-champagne {
+  background: var(--champagne-gradient);
+  color: #08070b;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-champagne::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-champagne:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow: 0 12px 35px rgba(212, 179, 108, 0.32);
+}
+
+.btn-champagne:hover::before {
+  left: 100%;
+}
+
+.btn-champagne-outline {
+  background: rgba(226, 201, 146, 0.08);
+  border: 1px solid rgba(226, 201, 146, 0.35);
+  color: #f5edd8;
+  transition: all 0.25s ease;
+}
+
+.btn-champagne-outline:hover {
+  background: rgba(226, 201, 146, 0.2);
+  border-color: rgba(226, 201, 146, 0.65);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-modern-outline {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e5e5eb;
+  transition: all 0.25s ease;
+}
+
+.btn-modern-outline:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(226, 201, 146, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Custom Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070709;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #202029;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4b36c;
+}
